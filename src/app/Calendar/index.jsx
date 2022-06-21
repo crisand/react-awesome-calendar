@@ -23,6 +23,7 @@ const modes = {
 class Calendar extends React.PureComponent {
   constructor(props) {
     super(props);
+    console.log("kaka")
     const currentDate = new Date();
     this.state = {
       mode: monthlyMode,
@@ -99,11 +100,11 @@ class Calendar extends React.PureComponent {
     const month = date.getMonth();
     const year = date.getFullYear();
     this.setState({
-        mode: dailyMode,
-        day,
-        month,
-        year,
-      },
+      mode: dailyMode,
+      day,
+      month,
+      year,
+    },
       this.onChange,
     );
   }
