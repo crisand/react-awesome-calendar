@@ -99,14 +99,15 @@ class Calendar extends React.PureComponent {
     const day = date.getDate();
     const month = date.getMonth();
     const year = date.getFullYear();
-    this.setState({
-      mode: dailyMode,
-      day,
-      month,
-      year,
-    },
-      this.onChange,
-    );
+    /*  this.setState({
+       mode: dailyMode,
+       day,
+       month,
+       year,
+     },
+       this.onChange,
+     ); */
+    this.onChange();
   }
 
   onClickMonth(month) {

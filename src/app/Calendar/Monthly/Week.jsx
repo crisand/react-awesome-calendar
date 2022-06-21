@@ -4,7 +4,7 @@ import Day from './Day';
 
 export default class Week extends React.PureComponent {
   onClickDay(day) {
-    const { current, date } = day;
+    /* const { current, date } = day;
     if (!current) {
       if (date.getMonth() < this.props.current.month) {
         this.props.onClickPrev();
@@ -13,7 +13,8 @@ export default class Week extends React.PureComponent {
       }
     } else {
       this.props.onClickDay(day.date);
-    }
+    } */
+    this.props.onClickDay(day.date);
   }
 
   returnWeeks(week) {
