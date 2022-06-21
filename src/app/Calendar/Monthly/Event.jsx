@@ -6,7 +6,7 @@ import styles from './Event.styles.scss';
 export default class Event extends React.PureComponent {
   returnEventsClassName(position) {
     const { inactive } = this.props;
-    console.log("props", this.props);
+    //console.log("props", this.props);
     const className = [styles.dayCellEvent];
     if (position) {
       if (position === startPosition) {
@@ -25,7 +25,7 @@ export default class Event extends React.PureComponent {
 
   returnEventName(title, position) {
     let showTitle = false;
-    console.log("styles", styles);
+    //console.log("styles", styles);
     if (position) {
       if (position === startPosition) {
         showTitle = true;

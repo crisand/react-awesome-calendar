@@ -79,7 +79,7 @@ export default class Day extends React.PureComponent {
         event.time = time;
         return event;
       })
-      console.log("displayEvents", displayEvents);
+      //console.log("displayEvents", displayEvents);
       return (
         <div className={styles.dayCellEventWrapper}>
           {this.returnEvents(displayEvents)}
