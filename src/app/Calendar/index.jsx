@@ -25,11 +25,12 @@ class Calendar extends React.PureComponent {
     super(props);
     //console.log("kaka")
     const currentDate = new Date();
+
     this.state = {
       mode: monthlyMode,
       day: currentDate.getDate(),
-      month: currentDate.getMonth(),
-      year: currentDate.getFullYear(),
+      month: this.props.currentMonth || currentDate.getMonth(),
+      year: this.props.currentYear || currentDate.getFullYear(),
     };
     this.onClickDay = this.onClickDay.bind(this);
     this.onClickTimeLine = this.onClickTimeLine.bind(this);

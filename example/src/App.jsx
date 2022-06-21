@@ -42,6 +42,7 @@ class App extends React.Component {
   componentDidMount() {
     const details = this.calendar.current.getDetails();
     // call get events endpoint
+
   }
 
   render() {
@@ -51,6 +52,8 @@ class App extends React.Component {
           ref={this.calendar}
           onClickEvent={(event) => console.log('this is an event', event)}
           onChange={(dates) => console.log(dates)}
+          currentMonth={5}
+          currentYear={2022}
           onClickTimeLine={(date) => console.log(date)}
           events={events}
         />
