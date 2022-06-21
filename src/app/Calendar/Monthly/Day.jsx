@@ -67,6 +67,19 @@ export default class Day extends React.PureComponent {
     const { events } = this.props;
     if (Array.isArray(events) && events.length) {
       let displayEvents = events.slice(0, this.state.eventNumber);
+      displayEvents = displayEvents.map(event => {
+        const startTime = event.from;
+        //calculate hours and minutes in format like 10:00am
+        const hours = startTime.getHours();
+        const minutes = startTime.getMinutes();
+        const ampm = hours >= 12 ? 'pm' : 'am';
+        const hour = hours % 12;
+        const minute = minutes < 10 ? `0${minutes}` : minutes;
+        const time = `${hour}:${minute}${ampm}`;
+        event.time = time;
+        return event;
+      })
+      console.log("displayEvents", displayEvents);
       return (
         <div className={styles.dayCellEventWrapper}>
           {this.returnEvents(displayEvents)}
@@ -80,12 +93,13 @@ export default class Day extends React.PureComponent {
       return (
         <Event
           height={16}
+          time={event.time}
           inactive={!this.props.current}
           key={event.id}
           color={event.color}
           title={event.title}
           position={event.position}
-          // onClick={() => this.props.onClickEvent && this.props.onClickEvent(event)}
+        // onClick={() => this.props.onClickEvent && this.props.onClickEvent(event)}
         />
       );
     });

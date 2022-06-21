@@ -6,6 +6,7 @@ import styles from './Event.styles.scss';
 export default class Event extends React.PureComponent {
   returnEventsClassName(position) {
     const { inactive } = this.props;
+    console.log("props", this.props);
     const className = [styles.dayCellEvent];
     if (position) {
       if (position === startPosition) {
@@ -24,6 +25,7 @@ export default class Event extends React.PureComponent {
 
   returnEventName(title, position) {
     let showTitle = false;
+    console.log("styles", styles);
     if (position) {
       if (position === startPosition) {
         showTitle = true;
@@ -32,7 +34,7 @@ export default class Event extends React.PureComponent {
       showTitle = true;
     }
     if (showTitle) {
-      return <span className={styles.eventTitle}>{title}</span>;
+      return <span style={{ color: "#151515", display: "flex", flexDirection: "row", alignItems: "center", gap: 5 }} className={styles.eventTitle}><div className='dot'></div><span style={{ flexGrow: 1 }}>{title}</span> <span className='eventTime'>{this.props.time}</span></span>;
     }
   }
 
@@ -40,7 +42,7 @@ export default class Event extends React.PureComponent {
     const { color, position, title, height } = this.props;
     return (
       <div
-        style={{ backgroundColor: color, height }}
+        style={{ backgroundColor: "#ffffff", color: "#151515", height }}
         className={this.returnEventsClassName(position)}
         onClick={this.props.onClick}
       >

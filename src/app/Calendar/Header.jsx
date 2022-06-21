@@ -54,14 +54,14 @@ export default class Header extends React.PureComponent {
     const { prev, next } = this.props;
     return (
       <div className={styles.calendarHeader}>
-        <h1>{this.returnTitle()}</h1>
+        {/*  <h1>{this.returnTitle()}</h1> */}
         <div className={styles.calendarHeaderButtons}>
-          <button onClick={this.props.onClickPrev}>
+          {/* <button onClick={this.props.onClickPrev}>
             {this.returnButtonText(prev)}
           </button>
           <button onClick={this.props.onClickNext}>
             {this.returnButtonText(next)}
-          </button>
+          </button> */}
         </div>
       </div>
     );

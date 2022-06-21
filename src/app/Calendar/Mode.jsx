@@ -33,13 +33,14 @@ export default class Mode extends React.PureComponent {
           classNames.push(styles.modeButtonActive);
         }
         return (
-          <button
-            className={classnames(classNames)}
-            key={mode.id}
-            onClick={() => this.props.onClick(mode.mode)}
-          >
-            {mode.text}
-          </button>
+          /*  <button
+             className={classnames(classNames)}
+             key={mode.id}
+             onClick={() => this.props.onClick(mode.mode)}
+           >
+             {mode.text}
+           </button> */
+          null
         );
       });
     }

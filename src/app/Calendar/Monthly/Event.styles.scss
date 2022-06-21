@@ -1,8 +1,12 @@
 .dayCellEvent {
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
   //cursor: pointer;
   display: block;
   text-align: left;
@@ -14,6 +18,33 @@
 
 .dayCellEvent:nth-last-of-type(0) {
   margin-bottom: 0;
+}
+
+.dot {
+
+  width: 4px;
+  height: 4px;
+
+  /* Light/ui-brand #007AC2 */
+  border-radius: 50%;
+  background: #007AC2;
+
+}
+
+.eventTime {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+
+  text-align: right;
+
+  /* Borders/Border Input */
+
+  color: #949494;
+
 }
 
 .eventTitle {
