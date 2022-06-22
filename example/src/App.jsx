@@ -51,7 +51,7 @@ class App extends React.Component {
         <Calendar
           ref={this.calendar}
           onClickEvent={(event) => console.log('this is an event', event)}
-          onChange={(dates) => console.log(dates)}
+          onChange={(dates) => console.log("kuku", dates)}
           currentMonth={5}
           currentYear={2022}
           onClickTimeLine={(date) => console.log(date)}
