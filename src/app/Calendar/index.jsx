@@ -39,7 +39,16 @@ class Calendar extends React.PureComponent {
     this.onClickPrev = this.onClickPrev.bind(this);
     this.onClickNext = this.onClickNext.bind(this);
   }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.currentMonth !== this.props.currentMonth || prevProps.currentYear !== this.props.currentYear) {
+      this.setState({
+        month: this.props.currentMonth,
+        year: this.props.currentYear,
+      })
+    }
 
+
+  }
   getDetails() {
 
     const { mode, year, month, day } = this.state;
