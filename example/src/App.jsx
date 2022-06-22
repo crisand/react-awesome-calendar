@@ -3,32 +3,12 @@ import Calendar from 'react-awesome-calendar';
 import styles from './themes/app.scss';
 
 const events = [
+
   {
-    id: 4,
+    id: 1,
     color: '#fda256',
-    from: '2022-06-21T12:16:15+0000',
-    to: '2022-06-21T12:17:15+0000',
-    title: 'Dinner',
-  },
-  {
-    id: 4,
-    color: '#fda256',
-    from: '2022-06-21T12:17:15+0000',
-    to: '2022-06-21T12:18:15+0000',
-    title: 'Dinner',
-  },
-  {
-    id: 4,
-    color: '#fda256',
-    from: '2022-06-21T12:18:15+0000',
-    to: '2022-06-21T12:19:15+0000',
-    title: 'Dinner',
-  },
-  {
-    id: 4,
-    color: '#fda256',
-    from: '2022-06-21T12:19:15+0000',
-    to: '2022-06-21T12:20:15+0000',
+    from: '2022-06-23T09:00:00.000Z',
+    to: "2022-06-23T10:00:00.000Z",
     title: 'Dinner',
   },
 ];
