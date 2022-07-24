@@ -69,7 +69,7 @@ export default class Day extends React.PureComponent {
       let displayEvents = events.slice(0, this.state.eventNumber);
       displayEvents = displayEvents.map(event => {
         console.log("event.from", event.from)
-        const startTime = event.from;
+        const startTime = event.from instanceof Date ? event.from : new Date(event.from);
         //display hours and minutes in format 2:30am based on date string
         /* event.time = startTime.toLocaleString('en-US', {
            hour: 'numeric',
