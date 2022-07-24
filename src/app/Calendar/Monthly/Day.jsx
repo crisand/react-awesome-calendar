@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './Day.styles.scss';
 import classnames from 'classnames';
 import Event from './Event';
-import { getElementHeight } from '../util/getElementHeight';
-import { getDate } from '../util/date';
+import {getElementHeight} from '../util/getElementHeight';
+import {getDate} from '../util/date';
 
 export default class Day extends React.PureComponent {
   constructor(props) {
@@ -68,14 +68,22 @@ export default class Day extends React.PureComponent {
     if (Array.isArray(events) && events.length) {
       let displayEvents = events.slice(0, this.state.eventNumber);
       displayEvents = displayEvents.map(event => {
-        //console.log("event.from", event.from)
+        console.log("event.from", event.from)
         const startTime = event.from;
         //display hours and minutes in format 2:30am based on date string
-        event.time = startTime.toLocaleString('en-US', {
-          hour: 'numeric',
-          minute: 'numeric',
-          hour12: true,
-        });
+        /* event.time = startTime.toLocaleString('en-US', {
+           hour: 'numeric',
+           minute: 'numeric',
+           hour12: true,
+         });*/
+        //hours with timezone offset
+        const hours = startTime.getHours() + startTime.getTimezoneOffset() / 60;
+        const minutes = startTime.getMinutes();
+        const ampm = hours >= 12 ? 'pm' : 'am';
+        const hour = hours % 12;
+        const minute = minutes < 10 ? `0${minutes}` : minutes;
+        const time = `${hour}:${minute}${ampm}`;
+        event.time = time;
         return event;
       })
       //console.log("displayEvents", displayEvents);
@@ -98,7 +106,7 @@ export default class Day extends React.PureComponent {
           color={event.color}
           title={event.title}
           position={event.position}
-        // onClick={() => this.props.onClickEvent && this.props.onClickEvent(event)}
+          // onClick={() => this.props.onClickEvent && this.props.onClickEvent(event)}
         />
       );
     });
