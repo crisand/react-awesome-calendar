@@ -1,5 +1,5 @@
-import { endPosition, middlePosition, startPosition } from '../constants';
-import { getDate } from './date';
+import {endPosition, middlePosition, startPosition} from '../constants';
+import {getDate} from './date';
 
 let firstDayOfWeek = 0;
 let lastDayOfWeek = 6;
@@ -25,7 +25,7 @@ export const dateDiff = (start, end) => {
 
   const timeDiff = Math.abs(from.getTime() - to.getTime());
   const dayDiff = timeDiff / (1000 * 3600 * 24);
-  let value =  dayDiff + 1;
+  let value = dayDiff + 1;
   if (end.getUTCHours() === 0 && end.getUTCMinutes() === 0 && end.getUTCSeconds() === 0) {
     value -= 1;
   }
@@ -33,7 +33,7 @@ export const dateDiff = (start, end) => {
 };
 
 const getStartOfCalendar = date => {
-  let originalStartDate = new Date(date.getTime());
+  let originalStartDate = new Date(date.getTime() );
   let actualStartDate = new Date(date.getTime());
 
   if (originalStartDate.getDay() !== firstDayOfWeek) {
@@ -110,14 +110,14 @@ export const formatEvents = events => {
           if (!Array.isArray(formattedEvents[fromDateAsTime])) {
             formattedEvents[fromDateAsTime] = [];
           }
-          if(from.getUTCHours() === 0 && to.getUTCHours() === 0) {
+          if (from.getUTCHours() === 0 && to.getUTCHours() === 0) {
             formattedEvents[fromDateAsTime].push({
               ...event,
               allDay: true,
               date: from,
               span: daySpan
             });
-          }else {
+          } else {
             formattedEvents[fromDateAsTime].push({
               ...event,
               date: from,

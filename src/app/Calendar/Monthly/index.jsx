@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './index.styles.scss';
-import { getCalendarMonth, getEventsForCalendar } from '../util/calendar';
+import {getCalendarMonth, getEventsForCalendar} from '../util/calendar';
 import Week from './Week';
 
 export default class Monthly extends React.Component {
@@ -32,6 +32,7 @@ export default class Monthly extends React.Component {
   returnCalendar() {
     let calendar = getCalendarMonth(this.props.month, this.props.year);
     calendar = getEventsForCalendar(this.props.events, calendar);
+    console.log("calendar", calendar)
     if (Array.isArray(calendar) && calendar.length) {
       return calendar.map((week, i) => {
         return (

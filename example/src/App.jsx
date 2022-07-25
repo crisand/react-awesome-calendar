@@ -2,12 +2,20 @@ import React from 'react';
 import Calendar from 'react-awesome-calendar';
 import styles from './themes/app.scss';
 
+//calculate a new date that is tomorrow at  01:00 am
+const tomorrow = new Date();
+tomorrow.setDate(26);
+tomorrow.setHours(0);
+tomorrow.setMinutes(0);
+tomorrow.setSeconds(0);
+tomorrow.setMilliseconds(0);
+
 const events = [
 
   {
     id: 1,
     color: '#fda256',
-    from: '2022-07-25T00:00:00.000Z',
+    from: tomorrow,
     to: '2022-07-25T01:00:00.000Z',
     title: 'Dinner',
   },
