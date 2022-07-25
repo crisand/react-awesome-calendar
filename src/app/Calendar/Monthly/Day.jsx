@@ -68,22 +68,22 @@ export default class Day extends React.PureComponent {
     if (Array.isArray(events) && events.length) {
       let displayEvents = events.slice(0, this.state.eventNumber);
       displayEvents = displayEvents.map(event => {
-        console.log("event.from", event.from)
-        const startTime = event.from instanceof Date ? event.from : new Date(event.from);
+        console.log("event.from", event.from, typeof event.from.getHours)
+        const startTime = typeof event.from.getHours === 'function' ? event.from : new Date(event.from);
         //display hours and minutes in format 2:30am based on date string
-        /* event.time = startTime.toLocaleString('en-US', {
-           hour: 'numeric',
-           minute: 'numeric',
-           hour12: true,
-         });*/
-        //hours with timezone offset
-        const hours = startTime.getHours() + startTime.getTimezoneOffset() / 60;
+        event.time = startTime.toLocaleString('en-US', {
+          hour: 'numeric',
+          minute: 'numeric',
+          hour12: true,
+        });
+        /*//hours with timezone offset
+        const hours = startTime.getHours();
         const minutes = startTime.getMinutes();
         const ampm = hours >= 12 ? 'pm' : 'am';
         const hour = hours % 12;
         const minute = minutes < 10 ? `0${minutes}` : minutes;
         const time = `${hour}:${minute}${ampm}`;
-        event.time = time;
+        event.time = time;*/
         return event;
       })
       //console.log("displayEvents", displayEvents);
