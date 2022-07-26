@@ -150,7 +150,9 @@ export default class Day extends React.PureComponent {
         id="dayCell"
         className={styles.dayCell}
         onClick={() => {
-          if (!this.state.isDisabled) this.props.onClickDay()
+          if (!this.state.isDisabled) {
+            this.props.onClickDay()
+          }
         }}
       >
         <div id="dayHeader" className={this.returnDayClassStyle()}>
