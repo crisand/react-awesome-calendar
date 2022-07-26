@@ -33,11 +33,15 @@
     /* Standard */
   }
 
+  .disabled {
+    opacity: 0.5;
+    pointer-events: none !important;
+  }
+
   .inactiveDay {
     color: #b5b5b5;
   }
 }
-
 
 
 .dayText {

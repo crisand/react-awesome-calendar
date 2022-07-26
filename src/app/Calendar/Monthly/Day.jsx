@@ -9,6 +9,7 @@ export default class Day extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
+      isDisabled: false,
       eventNumber: 1,
     };
   }
@@ -18,6 +19,9 @@ export default class Day extends React.PureComponent {
   }
 
   componentDidUpdate() {
+    if (this.props.date.getDate() < new Date().getDate()) {
+      this.setState({ isDisabled: true })
+    }
     this.shouldShowRemainder();
   }
 
@@ -32,6 +36,13 @@ export default class Day extends React.PureComponent {
     if (!this.props.current) {
       className.push(styles.inactiveDay);
     }
+    //if date day is less than today day add the disable style
+    if (this.props.date.getDate() < new Date().getDate()) {
+      className.push(styles.disabled);
+    }
+    /*if (this.props.date.getTime() < new Date().getTime()) {
+      className.push(styles.disabled);
+    }*/
     return classnames(className);
   }
 
@@ -138,7 +149,9 @@ export default class Day extends React.PureComponent {
       <div
         id="dayCell"
         className={styles.dayCell}
-        onClick={this.props.onClickDay}
+        onClick={() => {
+          if (!this.state.isDisabled) this.props.onClickDay()
+        }}
       >
         <div id="dayHeader" className={this.returnDayClassStyle()}>
           <div className={this.returnDayTextClass()}>
