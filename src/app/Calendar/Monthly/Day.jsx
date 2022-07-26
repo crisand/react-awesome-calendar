@@ -15,13 +15,24 @@ export default class Day extends React.PureComponent {
   }
 
   componentDidMount() {
+    /* if (this.props.date.getDate() < new Date().getDate() && this.props.date.getMonth() <= new Date().getMonth()) {
+       this.setState({ isDisabled: true })
+     } else {
+       this.setState({ isDisabled: false })
+     }*/
     this.shouldShowRemainder();
   }
 
+  iCant() {
+    //get timestamp for today first hour
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    return this.props.date.getTime() < today.getTime();
+  }
+
   componentDidUpdate() {
-    if (this.props.date.getDate() < new Date().getDate()) {
-      this.setState({ isDisabled: true })
-    }
+
     this.shouldShowRemainder();
   }
 
@@ -37,7 +48,7 @@ export default class Day extends React.PureComponent {
       className.push(styles.inactiveDay);
     }
     //if date day is less than today day add the disable style
-    if (this.props.date.getDate() < new Date().getDate()) {
+    if (this.iCant()) {
       className.push(styles.disabled);
     }
     /*if (this.props.date.getTime() < new Date().getTime()) {
@@ -150,7 +161,7 @@ export default class Day extends React.PureComponent {
         id="dayCell"
         className={styles.dayCell}
         onClick={() => {
-          if (!this.state.isDisabled) {
+          if (!this.iCant()) {
             this.props.onClickDay()
           }
         }}
