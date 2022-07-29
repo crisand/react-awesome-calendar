@@ -1,0 +1,69 @@
+.dailyWrapper2 {
+
+  width: calc(100% / 7);
+
+  height: 100%;
+}
+
+.dailyHourTextWrapper2 {
+  position: absolute;
+}
+
+.dailyTimeLine2 {
+  position: absolute;
+  width: calc(100% - 0px);
+  margin-left: 0px;
+  border-left: 2px solid #DFDFDF;
+}
+
+.dailyTimeLineWrapper2 {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+
+}
+
+.dailyHourWrapper2 {
+  height: 61px;
+}
+
+.dailyHour2 {
+  position: relative;
+  height: 0px !important;
+}
+
+.dailyHourText2 {
+  height: 100%;
+  line-height: 20px;
+  width: 50px;
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: #b5b5b5;
+}
+
+.dailyHourLine2 {
+  height: 1px;
+  width: 100%;
+  transform: translateY(-50%);
+  top: 50%;
+  position: absolute;
+  background-color: #EAEAEA;
+}
+
+.dayEvent2 {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  z-index: 10;
+}
+
+.dayEventMultiple2 {
+  padding-right: 20px;
+}
+
+.allDayEvent2 {
+  min-height: 20px;
+  box-sizing: border-box;
+  margin: 10px 0;
+}

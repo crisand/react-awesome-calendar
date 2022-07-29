@@ -1,10 +1,12 @@
 import React from 'react';
 import classnames from 'classnames';
-import { dailyMode, monthlyMode, yearlyMode } from './constants';
+import {dailyMode, monthlyMode, yearlyMode, weeklyMode} from './constants';
 import styles from './index.styles.scss';
+
 const year = 'year';
 const month = 'month';
 const day = 'day';
+const week = 'week';
 
 export default class Mode extends React.PureComponent {
   returnModes() {
@@ -19,6 +21,10 @@ export default class Mode extends React.PureComponent {
         id: month,
         mode: monthlyMode,
         text: 'Month',
+      }, {
+        id: week,
+        mode: weeklyMode,
+        text: 'Week',
       },
       {
         id: day,

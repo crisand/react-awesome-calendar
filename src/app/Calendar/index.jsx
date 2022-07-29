@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.styles.scss';
 import Header from './Header';
+import Weekly from './Weekly';
 import Monthly from './Monthly';
 import Yearly from './Yearly';
 import Daily from './Daily';
-import {dailyMode, monthlyMode, yearlyMode} from './constants/index';
+import {dailyMode, monthlyMode, weeklyMode, yearlyMode} from './constants/index';
 import Mode from './Mode';
 import {formatEvents} from './util/calendar';
 import {calendarDetails} from './util/calendarDetails';
@@ -27,7 +28,7 @@ class Calendar extends React.PureComponent {
     const currentDate = new Date();
 
     this.state = {
-      mode: monthlyMode,
+      mode: this.props.mode || monthlyMode,
       day: currentDate.getDate(),
       month: this.props.currentMonth || currentDate.getMonth(),
       year: this.props.currentYear || currentDate.getFullYear(),
@@ -91,6 +92,18 @@ class Calendar extends React.PureComponent {
       case monthlyMode:
         return (
           <Monthly
+            month={this.state.month}
+            year={this.state.year}
+            events={events}
+            onClickDay={this.onClickDay}
+            onClickPrev={this.onClickPrev}
+            onClickNext={this.onClickNext}
+          />
+        );
+      case weeklyMode:
+        return (
+          <Weekly
+            week={this.state.week}
             month={this.state.month}
             year={this.state.year}
             events={events}

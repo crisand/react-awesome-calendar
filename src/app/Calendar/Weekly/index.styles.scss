@@ -1,0 +1,44 @@
+.calendarDayOfWeek {
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
+  font-weight: 300;
+  border-left: 1px solid #DFDFDF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+
+  span {
+
+    border-left: 2px solid #DFDFDF;
+    border-bottom: 1px solid #DFDFDF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-transform: uppercase;
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    width: calc(100% / 7);
+  }
+
+
+}
+
+.weeklyCalendar {
+  height: 100%;
+}
+
+.day-header {
+  &.selected {
+    color: #007AC2 !important;
+  }
+}

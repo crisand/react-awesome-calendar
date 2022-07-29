@@ -37,10 +37,14 @@ class App extends React.Component {
     return (
       <div className={styles.pageCalendar}>
         <Calendar
+          style={{
+            height: '600px',
+          }}
           ref={this.calendar}
           onClickEvent={(event) => console.log('this is an event', event)}
           onChange={(dates) => console.log("kuku", dates)}
           currentMonth={6}
+          mode="weeklyMode"
           currentYear={2022}
           onClickTimeLine={(date) => console.log(date)}
           events={events}

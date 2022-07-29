@@ -33,7 +33,7 @@ export const dateDiff = (start, end) => {
 };
 
 const getStartOfCalendar = date => {
-  let originalStartDate = new Date(date.getTime() );
+  let originalStartDate = new Date(date.getTime());
   let actualStartDate = new Date(date.getTime());
 
   if (originalStartDate.getDay() !== firstDayOfWeek) {
@@ -80,6 +80,32 @@ export const getCalendarMonth = (month, year) => {
     calendar.push(week);
   }
   return calendar;
+};
+export const getCalendarWeek = (month, year) => {
+  //set firstDayOfWeek as  the first day of the current week
+  let firstDayOfWeek = new Date(year, month, 1).getDay();
+  let lastDayOfWeek = new Date(year, month + 1, 0).getDay();
+
+  let originalStartDate = new Date(year, month, firstDayOfWeek);
+  let originalEndDate = new Date(year, month + 1, lastDayOfWeek);
+
+  let actualStartDate = getStartOfCalendar(originalStartDate);
+  let actualEndDate = getEndOfCalendar(originalEndDate);
+
+  let dayDifference = dateDiff(actualStartDate, actualEndDate);
+
+  let days = [];
+
+  for (let y = 0; y < 7; y++) {
+    let currentDate = new Date(actualStartDate.getTime());
+    //currentDate.setDate(actualStartDate.getDate() + x * 7 + y);
+    days.push({
+      current: currentDate.getDate() === originalStartDate.getDate(),
+      date: currentDate,
+    });
+  }
+
+  return days;
 };
 
 export const formatEvents = events => {
