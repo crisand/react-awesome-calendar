@@ -3,6 +3,11 @@
   height: 100%;
 }
 
+.calendarDayOfWeek {
+  display: inline-flex;
+  width: 100%;
+}
+
 .day-header {
   height: 30px;
   display: flex;
@@ -15,6 +20,7 @@
   font-style: normal;
   font-weight: 800;
   font-size: 12px;
+  width: calc(100% / 7);
 
   &.selected {
     color: #007AC2 !important;

@@ -38,36 +38,7 @@ export default class Weekly extends React.Component {
   }
 
   returnCalendar() {
-    /* let calendar = getCalendarMonth(this.props.month, this.props.year);
-     calendar = getEventsForCalendar(this.props.events, calendar);*/
-    //console.log("calendar", calendar)
-    /*if (Array.isArray(calendar) && calendar.length) {
-      return calendar.map((week, i) => {
-        return (
-          <Week
-            key={i}
-            week={week}
-            current={{
-              month: this.props.month,
-              year: this.props.year,
-            }}
-            onClickDay={this.onClickDay}
-            // onClickEvent={this.props.onClickEvent}
-            onClickPrev={this.onClickPrev}
-            onClickNext={this.onClickNext}
-          />
-        );
-      });
-    }*/
-    /* this.props.daysOfWeek.forEach((day, i) => {
-       return (
-         <Daily
 
-           onClickEvent={this.props.onClickEvent}
-           onClickTimeLine={this.onClickTimeLine}
-         />
-       );
-     })*/
     let calendar = getCalendarWeek(this.props.month, this.props.year, this.props.week);
     //calendar = getEventsForCalendar(this.props.events, calendar);
     console.log("calendar", this.props.week, calendar)
@@ -83,6 +54,19 @@ export default class Weekly extends React.Component {
             onClickNext={this.onClickNext}
           />
         );
+      });
+    }
+  }
+
+  returnCalendarHeader() {
+
+    let calendar = getCalendarWeek(this.props.month, this.props.year, this.props.week);
+    //calendar = getEventsForCalendar(this.props.events, calendar);
+    console.log("calendar", this.props.week, calendar)
+    if (Array.isArray(calendar) && calendar.length) {
+      return calendar.map((date, i) => {
+        return <span className={date.date.getDate() === new Date().getDate() ? 'day-header' +
+          ' selected' : 'day-header'}>{this.props.daysOfWeek[i] + " " + date.date.getDate()}</span>;
       });
     }
   }
@@ -165,9 +149,9 @@ export default class Weekly extends React.Component {
   render() {
     return (
       <div className={styles.weeklyCalendar}>
-        {/* <div className={styles.calendarDayOfWeek}>
-          {this.returnDayOfWeekHeader()}
-        </div>*/}
+        <div className={styles.calendarDayOfWeek}>
+          {this.returnCalendarHeader()}
+        </div>
         <div style={{
           overflowY: 'scroll',
           height: 'calc(100% - 50px)',

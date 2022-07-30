@@ -302,9 +302,9 @@ export default class WeekDaily extends React.Component {
   render() {
     return (
       <div className={styles.dailyWrapper2}>
-        <div className={styles.calendarDayOfWeek}>
+        {/*<div className={styles.calendarDayOfWeek}>
           {this.returnDayOfWeekHeader()}
-        </div>
+        </div>*/}
         {this.returnAllDayEvents()}
         {this.returnTimeLine()}
       </div>
