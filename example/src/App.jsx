@@ -28,22 +28,22 @@ const events = [
   {
     id: 1,
     color: '#fda256',
-    from: tomorrow,
-    to: tomorrow.setHours(tomorrow.getHours() + 1),
+    from: new Date(2022, 6, 29, 12, 0, 0),
+    to: new Date(2022, 6, 29, 14, 0, 0),
     title: 'Dinner',
   },
   {
     id: 3,
     color: '#fda256',
-    from: tomorrow2,
-    to: tomorrow2.setHours(tomorrow.getHours() + 1),
+    from: new Date(2022, 6, 29, 15, 0, 0),
+    to: new Date(2022, 6, 29, 16, 0, 0),
     title: 'Lunch',
   },
   {
     id: 2,
     color: '#fda256',
-    from: yes,
-    to: yes.setHours(yes.getHours() + 1),
+    from: new Date(2022, 6, 28, 12, 0, 0),
+    to: new Date(2022, 6, 28, 13, 0, 0),
     title: 'key',
   },
 ];

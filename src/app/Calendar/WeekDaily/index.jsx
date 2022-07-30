@@ -66,6 +66,7 @@ export default class WeekDaily extends React.Component {
 
       // const eventWidthHandled = [];
       dayEvents.forEach((event, index) => {
+        //event.position === startPosition
         const id = `dailyEvent-${event.id}-${event.date.getDate()}`;
         let fromDate = new Date(event.from);
         let toDate = new Date(event.to);
@@ -82,7 +83,7 @@ export default class WeekDaily extends React.Component {
           toHour = 24;
         }
         const timeDiff = toHour - fromHour;
-
+        console.log('timeDiff', event.title, timeDiff, toHour, fromHour);
         const eventHeight = timeDiff * hourWrapperHeight;
         const eventPosition = fromHour * hourWrapperHeight + hourHeaderHeight;
 
@@ -97,14 +98,15 @@ export default class WeekDaily extends React.Component {
 
         document.getElementById(id).style.top = `${eventPosition}px`;
         document.getElementById(id).style.height = `${eventHeight}px`;
-        document.getElementById(id).style.width = `calc((100% / ${dayEvents.length}) - 10px)`;
-        document.getElementById(id).style.left = `calc((100% / ${dayEvents.length}) * ${index})`;
+        document.getElementById(id).style.width = `'100%'`;
+        document.getElementById(id).style.left = 0
+        //`calc((100% / ${dayEvents.length}) * ${index})`;
       });
     }
   }
 
   getTimeInHours(date) {
-    return date.getUTCHours() + date.getUTCMinutes() / 60 + date.getUTCSeconds() / 3600000;
+    return date.getHours() + date.getMinutes() / 60 + date.getSeconds() / 3600000;
   }
 
   // handleEventWidth(eventWidthHandled, events, fromHour, toHour, currentId) {
