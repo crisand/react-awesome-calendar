@@ -81,9 +81,9 @@ export const getCalendarMonth = (month, year) => {
   }
   return calendar;
 };
-export const getCalendarWeek = (month, year) => {
+export const getCalendarWeek = (month, year, week) => {
   //set firstDayOfWeek as  the first day of the current week
-  let firstDayOfWeek = new Date(year, month, 1).getDay();
+
   let lastDayOfWeek = new Date(year, month + 1, 0).getDay();
 
   let originalStartDate = new Date(year, month, firstDayOfWeek);
@@ -97,11 +97,18 @@ export const getCalendarWeek = (month, year) => {
   let days = [];
 
   for (let y = 0; y < 7; y++) {
+    let date = new Date();
+    let firstDayOfWeek = new Date(year, month, ((week - 1) * 7) + 1)
+    console.log("kayaya", firstDayOfWeek.getDay(), firstDayOfWeek)
+    //console.log("currentDate", currentDate, date.getDay());
+    firstDayOfWeek.setDate(firstDayOfWeek.getDate() - firstDayOfWeek.getDay() + y);
+
     let currentDate = new Date(actualStartDate.getTime());
+
     //currentDate.setDate(actualStartDate.getDate() + x * 7 + y);
     days.push({
       current: currentDate.getDate() === originalStartDate.getDate(),
-      date: currentDate,
+      date: firstDayOfWeek,
     });
   }
 

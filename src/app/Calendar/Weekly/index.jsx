@@ -62,14 +62,16 @@ export default class Weekly extends React.Component {
          />
        );
      })*/
-    let calendar = getCalendarWeek(this.props.month, this.props.year);
+    let calendar = getCalendarWeek(this.props.month, this.props.year, this.props.week);
     //calendar = getEventsForCalendar(this.props.events, calendar);
-    //console.log("calendar", calendar)
+    console.log("calendar", this.props.week, calendar)
     if (Array.isArray(calendar) && calendar.length) {
-      return calendar.map((day, i) => {
+      return calendar.map((date, i) => {
         return (
           <WeekDaily
-
+            key={i}
+            index={i}
+            date={date.date}
             onClickPrev={this.onClickPrev}
             onClickNext={this.onClickNext}
           />
@@ -96,9 +98,9 @@ export default class Weekly extends React.Component {
   render() {
     return (
       <div className={styles.weeklyCalendar}>
-        <div className={styles.calendarDayOfWeek}>
+        {/* <div className={styles.calendarDayOfWeek}>
           {this.returnDayOfWeekHeader()}
-        </div>
+        </div>*/}
         <div style={{
           overflowY: 'scroll',
           height: 'calc(100% - 50px)',

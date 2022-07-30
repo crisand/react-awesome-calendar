@@ -3,6 +3,7 @@ import styles from './index.styles.scss';
 import {getElementHeight} from '../util/getElementHeight';
 import Event from './Event';
 import {endPosition, middlePosition, startPosition} from '../constants';
+import Weekly from "../Weekly";
 
 export default class WeekDaily extends React.Component {
   constructor(props) {
@@ -282,12 +283,28 @@ export default class WeekDaily extends React.Component {
     }
   }
 
+  returnDayOfWeekHeader() {
+    console.log("kaka", this.props.date)
+    return this.props.date ? <span className={this.props.date.getDate() === new Date().getDate() ? 'day-header' +
+      ' selected' : 'day-header'}>{this.props.daysOfWeek[this.props.index] + " " + this.props.date.getDate()}</span> : null;
+    /*return this.props.daysOfWeek.map((day, i) => {
+      return <span className={i === new Date().getDay() ? 'day-header selected' : 'day-header'} key={i}>{this.getDate(day, i)}</span>;
+    });*/
+  }
+
   render() {
     return (
       <div className={styles.dailyWrapper2}>
+        <div className={styles.calendarDayOfWeek}>
+          {this.returnDayOfWeekHeader()}
+        </div>
         {this.returnAllDayEvents()}
         {this.returnTimeLine()}
       </div>
     );
   }
 }
+WeekDaily.defaultProps = {
+  daysOfWeek: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+};
+

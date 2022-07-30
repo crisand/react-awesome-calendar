@@ -16,7 +16,7 @@ const events = [
     id: 1,
     color: '#fda256',
     from: tomorrow,
-    to: '2022-07-25T01:00:00.000Z',
+    to: '2022-07-30T01:00:00.000Z',
     title: 'Dinner',
   },
 ];
@@ -44,6 +44,7 @@ class App extends React.Component {
           onClickEvent={(event) => console.log('this is an event', event)}
           onChange={(dates) => console.log("kuku", dates)}
           currentMonth={6}
+          currentWeek={5}
           mode="weeklyMode"
           currentYear={2022}
           onClickTimeLine={(date) => console.log(date)}
