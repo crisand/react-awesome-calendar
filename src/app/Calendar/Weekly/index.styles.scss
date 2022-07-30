@@ -5,7 +5,19 @@
 
 .calendarDayOfWeek {
   display: inline-flex;
-  width: 100%;
+  width: calc(100% - 48px);
+  padding-left: 48px;
+}
+
+.hour-time {
+  font-family: 'Avenir Next';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 138% */
+
+  text-align: center;
 }
 
 .day-header {

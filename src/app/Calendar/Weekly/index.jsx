@@ -146,6 +146,54 @@ export default class Weekly extends React.Component {
     });
   }
 
+  returnHoursLine() {
+    const hours = [
+      '00:00',
+      '01:00',
+      '02:00',
+      '03:00',
+      '04:00',
+      '05:00',
+      '06:00',
+      '07:00',
+      '08:00',
+      '09:00',
+      '10:00',
+      '11:00',
+      '12:00',
+      '13:00',
+      '14:00',
+      '15:00',
+      '16:00',
+      '17:00',
+      '18:00',
+      '19:00',
+      '20:00',
+      '21:00',
+      '22:00',
+      '23:00',
+      '24:00',
+    ];
+    return <div style={{ width: 48 }}>
+      {
+        hours.map((hour, i) => {
+          return (
+            <div key={i} style={{
+              width: '100%',
+              backgroundColor: '#ffffff',
+              height: 61
+            }}>
+
+              <div className='hour-time'>{hour}</div>
+
+            </div>
+          );
+        })
+      }
+    </div>
+
+  }
+
   render() {
     return (
       <div className={styles.weeklyCalendar}>
@@ -158,7 +206,13 @@ export default class Weekly extends React.Component {
           display: 'inline-flex',
           width: '100%'
         }}>
-          {this.returnCalendar()}
+          {this.returnHoursLine()}
+          <div style={{
+            flexGrow: 1,
+            display: 'inline-flex'
+          }}>
+            {this.returnCalendar()}
+          </div>
         </div>
 
       </div>
