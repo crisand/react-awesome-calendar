@@ -154,7 +154,7 @@ export default class Weekly extends React.Component {
         </div>
         <div style={{
           overflowY: 'scroll',
-          height: 'calc(100% - 50px)',
+          height: 'calc(100% - 30px)',
           display: 'inline-flex',
           width: '100%'
         }}>
