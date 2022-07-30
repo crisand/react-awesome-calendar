@@ -97,6 +97,11 @@ export default class Weekly extends React.Component {
         const event = this.props.events[p];
         if (event) {
           for (let l in event) {
+            event[l].time = event[l].from.toLocaleString('en-US', {
+              hour: 'numeric',
+              minute: 'numeric',
+              hour12: true,
+            });
             events.push(event[l])
           }
         }

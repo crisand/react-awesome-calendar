@@ -221,8 +221,9 @@ export default class WeekDaily extends React.Component {
             className={styles.dayEvent2}
           >
             <Event
-              color={event.color}
+              color={'#fff'}
               title={event.title}
+              time={event.time}
               onClick={() => this.onClickEvent(event.id)}
             />
           </div>
@@ -279,6 +280,7 @@ export default class WeekDaily extends React.Component {
           <div key={event.id} className={styles.allDayEvent2}>
             <Event
               color={event.color}
+              time={event.time}
               title={event.title}
               onClick={() => this.onClickEvent(event.id)}
             />
