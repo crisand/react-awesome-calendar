@@ -5,8 +5,8 @@
 
 .calendarDayOfWeek {
   display: inline-flex;
-  width: calc(100% - 48px);
-  padding-left: 48px;
+  width: calc(100% - 55px);
+  padding-left: 55px;
 }
 
 .hour-time {
@@ -16,7 +16,7 @@
   font-size: 12px;
   line-height: 16px;
   /* identical to box height, or 138% */
-
+  width: 100%;
   text-align: center;
 }
 
