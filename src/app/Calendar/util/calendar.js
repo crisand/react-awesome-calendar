@@ -98,8 +98,8 @@ export const getCalendarWeek = (month, year, week) => {
 
   for (let y = 0; y < 7; y++) {
     let date = new Date();
-    let firstDayOfWeek = new Date(year, month, ((week - 1) * 7) + 1)
-    console.log("kayaya", firstDayOfWeek.getDay(), firstDayOfWeek)
+    let firstDayOfWeek = new Date(year, month, ((week - 1) * 7) + 1, 0, 0, 0)
+    //console.log("kayaya", firstDayOfWeek.getDay(), firstDayOfWeek)
     //console.log("currentDate", currentDate, date.getDay());
     firstDayOfWeek.setDate(firstDayOfWeek.getDate() - firstDayOfWeek.getDay() + y);
 
@@ -114,7 +114,90 @@ export const getCalendarWeek = (month, year, week) => {
 
   return days;
 };
+export const formatWeekEvents = events => {
+  let formattedEvents = {};
+  if (Array.isArray(events) && events.length) {
+    events.forEach(event => {
+      const from = (event.from);
+      const to = (event.to);
+      const fromDate = from
+      console.log("fromDate", fromDate)
+      const toDate = to
+      const fromDateAsTime = fromDate.getTime();
+      const toDateAsTime = toDate.getTime();
+      // if the from date is the same as the to date
 
+      if (fromDateAsTime === toDateAsTime) {
+        if (!Array.isArray(formattedEvents[fromDateAsTime])) {
+          formattedEvents[fromDateAsTime] = [];
+        }
+        formattedEvents[fromDateAsTime].push({
+          ...event,
+          date: from,
+          from,
+          to,
+        });
+      } else {
+        const daySpan = dateDiff(from, to);
+        if (daySpan === 1) {
+          if (!Array.isArray(formattedEvents[fromDateAsTime])) {
+            formattedEvents[fromDateAsTime] = [];
+          }
+          if (from.getUTCHours() === 0 && to.getUTCHours() === 0) {
+            formattedEvents[fromDateAsTime].push({
+              ...event,
+              allDay: true,
+              date: from,
+              span: daySpan
+            });
+          } else {
+            formattedEvents[fromDateAsTime].push({
+              ...event,
+              date: from,
+              span: daySpan
+            });
+          }
+        } else {
+          // loop over each day between the from - to date
+          for (let x = 0; x < daySpan; x++) {
+            const dateIteration = new Date(fromDateAsTime);
+            dateIteration.setDate(fromDate.getDate() + x);
+
+            // work out whether the event is positioned first, middle or last
+            let position;
+            if (x === 0) {
+              position = startPosition;
+            } else if (x < daySpan - 1) {
+              position = middlePosition;
+            } else {
+              position = endPosition;
+            }
+
+            const dateTime = dateIteration.getTime();
+            if (!Array.isArray(formattedEvents[dateTime])) {
+              formattedEvents[dateTime] = [];
+            }
+            formattedEvents[dateTime].push({
+              ...event,
+              spread: true,
+              date: dateIteration,
+              position,
+              span: daySpan
+            });
+          }
+        }
+      }
+    });
+    // sort each event by date time
+    Object.keys(formattedEvents).forEach(date => {
+      formattedEvents[date] = formattedEvents[date].sort(
+        (a, b) => new Date(a.from) - new Date(b.from),
+      );
+    });
+  }
+
+  return formattedEvents;
+};
 export const formatEvents = events => {
   let formattedEvents = {};
   if (Array.isArray(events) && events.length) {
@@ -122,6 +205,7 @@ export const formatEvents = events => {
       const from = new Date(event.from);
       const to = new Date(event.to);
       const fromDate = getDate(from);
+
       const toDate = getDate(to);
       const fromDateAsTime = fromDate.getTime();
       const toDateAsTime = toDate.getTime();

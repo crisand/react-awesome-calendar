@@ -45,7 +45,9 @@ export default class WeekDaily extends React.Component {
 
   getAllDayEvents() {
     const { events } = this.props;
+    //console.log("eventsmfk", events);
     if (Array.isArray(events) && events.length) {
+      //console.log("matataga")
       return events.filter(e => (
         e.position === middlePosition ||
         e.allDay ||
@@ -267,7 +269,8 @@ export default class WeekDaily extends React.Component {
 
   returnAllDayEvents() {
     const dailyEvents = this.getAllDayEvents();
-    //console.log('dailyEvents',dailyEvents);
+    //console.log("dailyEvents", dailyEvents);
+    console.log('dailyEvents', dailyEvents);
     if (Array.isArray(dailyEvents) && dailyEvents.length) {
       return dailyEvents.map(event => {
         return (
@@ -284,7 +287,7 @@ export default class WeekDaily extends React.Component {
   }
 
   returnDayOfWeekHeader() {
-    console.log("kaka", this.props.date)
+    //console.log("kaka", this.props.date)
     return this.props.date ? <span className={this.props.date.getDate() === new Date().getDate() ? 'day-header' +
       ' selected' : 'day-header'}>{this.props.daysOfWeek[this.props.index] + " " + this.props.date.getDate()}</span> : null;
     /*return this.props.daysOfWeek.map((day, i) => {

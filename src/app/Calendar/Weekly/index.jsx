@@ -1,6 +1,12 @@
 import React from 'react';
 import styles from './index.styles.scss';
-import {getCalendarMonth, getCalendarWeek, getEventsForCalendar} from '../util/calendar';
+import {
+  formatEvents,
+  formatWeekEvents,
+  getCalendarMonth,
+  getCalendarWeek,
+  getEventsForCalendar
+} from '../util/calendar';
 import Week from './Week';
 import Daily from "../Daily";
 import WeekDaily from "../WeekDaily";
@@ -71,6 +77,7 @@ export default class Weekly extends React.Component {
           <WeekDaily
             key={i}
             index={i}
+            events={this.returnDailyEvents(date.date)}
             date={date.date}
             onClickPrev={this.onClickPrev}
             onClickNext={this.onClickNext}
@@ -78,6 +85,61 @@ export default class Weekly extends React.Component {
         );
       });
     }
+  }
+
+  returnDailyEvents(date) {
+    let events = [];
+    let i = 1;
+    //console.log("kaka", events)
+    for (let p in this.props.events) {
+      //console.log("p", new Date(parseFloat(p)).getDate(), date.getDate())
+      if (new Date(parseFloat(p)).getDate() === date.getDate()) {
+        const event = this.props.events[p];
+        if (event) {
+          for (let l in event) {
+            events.push(event[l])
+          }
+        }
+        /* events.push({
+           color: "#fda256",
+           date: new Date(parseFloat(p)).getDate(),
+           id: i,
+           title: this.props.events[p].title,
+           from: new Date(parseFloat(p)).getDate(),
+           to: new Date(parseFloat(p)).getDate()
+         });
+ */
+        /*events[date.getTime()] = formatWeekEvents(this.props.events[p])
+        console.log("YAYAYAY", formatWeekEvents(this.props.events[p]))*/
+        //console.log("kaka", this.props.events[p])
+        i++
+      }
+      //console.log("p", events[p], formatWeekEvents(events[p]))
+      //events[p] = formatWeekEvents(events[p])
+
+      // events.push(this.props.events[p])
+      //events = events.concat(this.props.events[p])
+
+    }
+    /*for (let p in events) {
+      //events[p] = formatWeekEvents(events[p])
+      /!* if (new Date(parseFloat(p)).getDate() === date.getDate()) {
+         // events.push(this.props.events[p])
+         //events = events.concat(this.props.events[p])
+
+       }*!/
+    }
+    //console.log("eventsu", events)
+    /!* return this.props.events.filter(event => {
+       return event.from.getDate() === date.getDate() && event.from.getMonth() === date.getMonth() && event.from.getFullYear() === date.getFullYear();
+     })*!/
+    // const eventsByDay = formatEvents(events);)*/
+
+    //const dateu = new Date(date.getFul, date.getMonth(), date.getDate());
+    // console.log("mata", date, events[date.getTime()])
+    console.log("mata", date, events)
+    return events;
+    //return formatWeekEvents(events);
   }
 
   getDate(day, index) {
