@@ -76,7 +76,7 @@ export default class Weekly extends React.Component {
     //console.log("calendar", this.props.week, calendar)
     if (Array.isArray(calendar) && calendar.length) {
       return calendar.map((date, i) => {
-        return <span className={date.date.getDate() === new Date().getDate() ? 'day-header' +
+        return <span className={date.date.getDate() === new Date().getDate() && date.date.getMonth() === new Date().getMonth() && date.date.getFullYear() === new Date().getFullYear() ? 'day-header' +
           ' selected' : 'day-header'}>{this.props.daysOfWeek[i] + " " + date.date.getDate()}</span>;
       });
     }
