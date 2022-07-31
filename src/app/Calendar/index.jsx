@@ -82,7 +82,7 @@ class Calendar extends React.PureComponent {
 
   returnCalendar() {
     const events = formatEvents(this.props.events);
-    console.log("change mode", this.state.mode)
+
     switch (this.props.mode) {
       case yearlyMode:
         return (

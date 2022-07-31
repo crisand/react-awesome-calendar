@@ -83,7 +83,7 @@ export default class WeekDaily extends React.Component {
           toHour = 24;
         }
         const timeDiff = toHour - fromHour;
-        console.log('timeDiff', event.title, timeDiff, toHour, fromHour);
+        //console.log('timeDiff', event.title, timeDiff, toHour, fromHour);
         const eventHeight = timeDiff * hourWrapperHeight;
         const eventPosition = fromHour * hourWrapperHeight + hourHeaderHeight;
 
@@ -276,7 +276,7 @@ export default class WeekDaily extends React.Component {
   returnAllDayEvents() {
     const dailyEvents = this.getAllDayEvents();
     //console.log("dailyEvents", dailyEvents);
-    console.log('dailyEvents', dailyEvents);
+    //console.log('dailyEvents', dailyEvents);
     if (Array.isArray(dailyEvents) && dailyEvents.length) {
       return dailyEvents.map(event => {
         return (

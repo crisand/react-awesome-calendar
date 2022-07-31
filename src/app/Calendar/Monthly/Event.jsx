@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { middlePosition, startPosition } from '../constants';
+import {middlePosition, startPosition} from '../constants';
 import styles from './Event.styles.scss';
 
 export default class Event extends React.PureComponent {
@@ -34,15 +34,30 @@ export default class Event extends React.PureComponent {
       showTitle = true;
     }
     if (showTitle) {
-      return <span style={{ color: "#151515", display: "flex", flexDirection: "row", alignItems: "center", gap: 5 }} className={styles.eventTitle}><div className='dot'></div><span style={{ flexGrow: 1 }}>{title}</span> <span className='eventTime'>{this.props.time}</span></span>;
+      return <span style={{
+        color: "#151515",
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 5
+      }} className={styles.eventTitle}><div className='dot'></div><span style={{ flexGrow: 1 }}>{title}</span> <span className='eventTime'>{this.props.time}</span></span>;
     }
   }
 
   render() {
-    const { color, position, title, height } = this.props;
+    const {
+      color,
+      position,
+      title,
+      height
+    } = this.props;
     return (
       <div
-        style={{ backgroundColor: "#ffffff", color: "#151515", height }}
+        style={{
+          backgroundColor: "#ffffff",
+          color: "#151515",
+          height
+        }}
         className={this.returnEventsClassName(position)}
         onClick={this.props.onClick}
       >

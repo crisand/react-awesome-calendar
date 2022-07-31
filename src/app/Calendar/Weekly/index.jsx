@@ -49,7 +49,7 @@ export default class Weekly extends React.Component {
 
     let calendar = getCalendarWeek(this.props.month, this.props.year, this.props.week);
     //calendar = getEventsForCalendar(this.props.events, calendar);
-    console.log("calendar", this.props.week, calendar)
+    ///console.log("calendar", this.props.week, calendar)
     if (Array.isArray(calendar) && calendar.length) {
       return calendar.map((date, i) => {
         return (
@@ -72,7 +72,7 @@ export default class Weekly extends React.Component {
 
     let calendar = getCalendarWeek(this.props.month, this.props.year, this.props.week);
     //calendar = getEventsForCalendar(this.props.events, calendar);
-    console.log("calendar", this.props.week, calendar)
+    //console.log("calendar", this.props.week, calendar)
     if (Array.isArray(calendar) && calendar.length) {
       return calendar.map((date, i) => {
         return <span className={date.date.getDate() === new Date().getDate() ? 'day-header' +
@@ -136,7 +136,7 @@ export default class Weekly extends React.Component {
 
     //const dateu = new Date(date.getFul, date.getMonth(), date.getDate());
     // console.log("mata", date, events[date.getTime()])
-    console.log("mata", date, events)
+
     return events;
     //return formatWeekEvents(events);
   }
@@ -144,7 +144,7 @@ export default class Weekly extends React.Component {
   getDate(day, index) {
     let date = new Date();
     let currentDate = date.getDate();
-    console.log("currentDate", currentDate, date.getDay());
+    //console.log("currentDate", currentDate, date.getDay());
     date.setDate(date.getDate() + index - date.getDay());
     return day + " " + date.getDate();
 
