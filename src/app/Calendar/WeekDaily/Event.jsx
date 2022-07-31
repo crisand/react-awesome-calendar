@@ -4,7 +4,7 @@ import styles from './Event.styles.scss';
 export default class Event extends React.Component {
   constructor(props) {
     super(props);
-    console.log("props", props);
+    //console.log("props", props);
     this.onClick = this.onClick.bind(this);
   }
 
