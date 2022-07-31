@@ -105,10 +105,11 @@ class Calendar extends React.PureComponent {
       case weeklyMode:
         return (
           <Weekly
-            week={this.state.week}
+            week={this.props.currentWeek}
             month={this.state.month}
             year={this.state.year}
             events={events}
+            onClickTimeLine={this.onClickTimeLine}
             onClickDay={this.onClickDay}
             onClickPrev={this.onClickPrev}
             onClickNext={this.onClickNext}
