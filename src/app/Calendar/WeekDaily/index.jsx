@@ -252,7 +252,10 @@ export default class WeekDaily extends React.Component {
       if (hour > 24) {
         hour = 24;
       }
-      this.props.onClickTimeLine(hour);
+      const newDate = new Date(this.props.date);
+      newDate.setHours(hour);
+      if (newDate.getTime() >= (new Date).getTime()) this.props.onClickTimeLine(newDate);
+      //this.props.onClickTimeLine(this.props.date + ' ' + hour + ':00:00');
     }
   }
 

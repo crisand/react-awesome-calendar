@@ -37,6 +37,14 @@ export default class Weekly extends React.Component {
     }
   }
 
+  onClickTimeLine(event) {
+    console.log("event", event)
+  }
+
+  onClickEvent(event) {
+    console.log("click event", event)
+  }
+
   returnCalendar() {
 
     let calendar = getCalendarWeek(this.props.month, this.props.year, this.props.week);
@@ -50,6 +58,8 @@ export default class Weekly extends React.Component {
             index={i}
             events={this.returnDailyEvents(date.date)}
             date={date.date}
+            onClickEvent={this.onClickEvent}
+            onClickTimeLine={this.onClickTimeLine}
             onClickPrev={this.onClickPrev}
             onClickNext={this.onClickNext}
           />
