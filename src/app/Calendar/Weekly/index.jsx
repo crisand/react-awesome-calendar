@@ -207,7 +207,7 @@ export default class Weekly extends React.Component {
   render() {
     return (
       <div className={styles.weeklyCalendar}>
-        <div className={styles.calendarDayOfWeek}>
+        <div className={styles.calendarDayOfWeekWeekly}>
           {this.returnCalendarHeader()}
         </div>
         <div style={{
