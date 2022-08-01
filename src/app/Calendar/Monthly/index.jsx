@@ -34,7 +34,10 @@ export default class Monthly extends React.Component {
     calendar = getEventsForCalendar(this.props.events, calendar);
     //console.log("calendar", calendar)
     if (Array.isArray(calendar) && calendar.length) {
-      return calendar.map((week, i) => {
+      return <div style={{
+        height: 'calc(100% - 22px)',
+        overflow: 'hidden'
+      }}>{calendar.map((week, i) => {
         return (
           <Week
             key={i}
@@ -49,7 +52,7 @@ export default class Monthly extends React.Component {
             onClickNext={this.onClickNext}
           />
         );
-      });
+      })}</div>
     }
   }
 
@@ -61,7 +64,7 @@ export default class Monthly extends React.Component {
 
   render() {
     return (
-      <div className={styles.monthlyCalendar}>
+      <div style={{ height: '100%' }} className={styles.monthlyCalendar}>
         <div className={styles.calendarDayOfWeek}>
           {this.returnDayOfWeekHeader()}
         </div>
