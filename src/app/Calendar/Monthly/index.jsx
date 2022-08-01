@@ -18,12 +18,14 @@ export default class Monthly extends React.Component {
   }
 
   onClickPrev() {
+    return;
     if (this.props.onClickPrev) {
       this.props.onClickPrev();
     }
   }
 
   onClickNext() {
+    return;
     if (this.props.onClickNext) {
       this.props.onClickNext();
     }

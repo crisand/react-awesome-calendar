@@ -36,10 +36,10 @@ class Calendar extends React.PureComponent {
     };
     this.onClickDay = this.onClickDay.bind(this);
     this.onClickTimeLine = this.onClickTimeLine.bind(this);
-    this.onClickMonth = this.onClickMonth.bind(this);
+    //this.onClickMonth = this.onClickMonth.bind(this);
     this.onClickMode = this.onClickMode.bind(this);
-    this.onClickPrev = this.onClickPrev.bind(this);
-    this.onClickNext = this.onClickNext.bind(this);
+    /* this.onClickPrev = this.onClickPrev.bind(this);
+     this.onClickNext = this.onClickNext.bind(this);*/
   }
 
   componentDidUpdate(prevProps, prevState) {
