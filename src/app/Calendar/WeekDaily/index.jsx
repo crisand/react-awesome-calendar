@@ -197,7 +197,7 @@ export default class WeekDaily extends React.Component {
       '21:00',
       '22:00',
       '23:00',
-      '24:00',
+
     ];
     return hours.map((hour, i) => {
       return (

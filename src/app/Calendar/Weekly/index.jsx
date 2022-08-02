@@ -56,7 +56,7 @@ export default class Weekly extends React.Component {
       //newDate.setHours(12, 0, 0, 0);
       let minutes = newDate.getHours() * 60 + newDate.getMinutes();
       let barTop = (minutes / (24 * 60)) * this.container.firstChild.firstChild.firstChild.offsetHeight;
-      this.setState({ barTop: barTop - 38 });
+      this.setState({ barTop: barTop - 0 });
       //this.setState({ barTop: 10 });
       //this.setBarTop = true;
     }
@@ -199,7 +199,7 @@ export default class Weekly extends React.Component {
       '09:00 pm',
       '10:00 pm',
       '11:00 pm',
-      '12:00 pm',
+
     ];
     return <div style={{ width: 55 }}>
       {
