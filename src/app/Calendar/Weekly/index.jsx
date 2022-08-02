@@ -14,6 +14,7 @@ import WeekDaily from "../WeekDaily";
 export default class Weekly extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { barTop: 0 }
     this.onClickDay = this.onClickDay.bind(this);
     this.onClickPrev = this.onClickPrev.bind(this);
     this.onClickNext = this.onClickNext.bind(this);
@@ -44,6 +45,21 @@ export default class Weekly extends React.Component {
 
   onClickEvent(event) {
     //console.log("click event", event)
+  }
+
+  setBarTop(top) {
+
+    if (this.container && !this.state.barTop) {
+      console.log("calendar", this.container.firstChild.firstChild.firstChild.offsetHeight, this.container.offsetHeight);
+      //calculate minutes since today at 00:00
+      const newDate = new Date();
+      //newDate.setHours(12, 0, 0, 0);
+      let minutes = newDate.getHours() * 60 + newDate.getMinutes();
+      let barTop = (minutes / (24 * 60)) * this.container.firstChild.firstChild.firstChild.offsetHeight;
+      this.setState({ barTop: barTop - 38 });
+      //this.setState({ barTop: 10 });
+      //this.setBarTop = true;
+    }
   }
 
   returnCalendar() {
@@ -206,6 +222,13 @@ export default class Weekly extends React.Component {
   }
 
   render() {
+    /*let barTop, scrollTop=0;
+    const time = () => {
+      barTop = this.context.state.hoursElapsed * 181 + 20 || 0;
+      scrollTop = barTop - window.innerHeight / 2;
+      //if (this.timeList) this.timeList.scrollTop = scrollTop;
+      return <div></div>
+    }*/
     return (
       <div className={styles.weeklyCalendar}>
         <div className={styles.calendarDayOfWeekWeekly}>
@@ -218,12 +241,24 @@ export default class Weekly extends React.Component {
           width: '100%'
         }}>
           {this.returnHoursLine()}
-          <div style={{
+          <div ref={(ref) => {
+            this.container = ref;
+            this.setBarTop()
+          }} style={{
             flexGrow: 1,
+            position: 'relative',
             display: 'inline-flex'
           }}>
             {this.returnCalendar()}
+
+            <div className='time-bar-container2' style={{ top: this.state.barTop }}>
+              <div className='time-bar-circle2'></div>
+              <div className='time-bar2'></div>
+            </div>
+
           </div>
+
+
         </div>
 
       </div>

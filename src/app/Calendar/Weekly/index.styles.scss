@@ -20,6 +20,29 @@
   text-align: center;
 }
 
+.time-bar-container2 {
+  position: absolute;
+  width: calc(100%);
+  left: 0px;
+  z-index: 999999;
+  align-items: center;
+  display: inline-flex;
+}
+
+
+.time-bar-circle2 {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #007AC2;
+}
+
+.time-bar2 {
+  flex-grow: 1;
+  height: 0px;
+  border: 2px solid #007AC2;
+}
+
 .day-header {
   height: 30px;
   display: flex;
