@@ -244,6 +244,7 @@ export default class WeekDaily extends React.Component {
       const clientY = event.clientY;
       let rect = document.getElementById('dailyTimeLine').getBoundingClientRect();
       const positionY = clientY + scrollTop - rect.top - (this.returnHourHeaderHeight() / 2);
+
       let hourPosition = positionY / this.returnHourWrapperHeight();
       let hour = Math.round(hourPosition * 2) / 2;
       if (hour <= 0) {
@@ -252,8 +253,10 @@ export default class WeekDaily extends React.Component {
       if (hour > 24) {
         hour = 24;
       }
+      console.log('clientY', clientY, hour);
       const newDate = new Date(this.props.date);
       newDate.setHours(hour);
+      newDate.setMinutes((hour - Math.floor(hour)) * 60);
       if (newDate.getTime() >= (new Date).getTime()) this.props.onClickTimeLine(newDate);
       //this.props.onClickTimeLine(this.props.date + ' ' + hour + ':00:00');
     }
