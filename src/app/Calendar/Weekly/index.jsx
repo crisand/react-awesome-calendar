@@ -103,8 +103,9 @@ export default class Weekly extends React.Component {
     let i = 1;
     //console.log("kaka", events)
     for (let p in this.props.events) {
+      const dateu = new Date(parseFloat(p));
       //console.log("p", new Date(parseFloat(p)).getDate(), date.getDate())
-      if (new Date(parseFloat(p)).getDate() === date.getDate()) {
+      if (dateu.getDate() === date.getDate() && dateu.getMonth() === date.getMonth() && dateu.getFullYear() === date.getFullYear()) {
         const event = this.props.events[p];
         if (event) {
           for (let l in event) {
