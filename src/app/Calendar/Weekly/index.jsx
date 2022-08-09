@@ -71,7 +71,7 @@ export default class Weekly extends React.Component {
       return calendar.map((date, i) => {
         return (
           <WeekDaily
-            key={i}
+            key={i + "_" + date.date.getDate()}
             index={i}
             events={this.returnDailyEvents(date.date)}
             date={date.date}

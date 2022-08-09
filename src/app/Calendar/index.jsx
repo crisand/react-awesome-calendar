@@ -251,8 +251,8 @@ Calendar.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       color: PropTypes.string.isRequired,
-      from: PropTypes.string.isRequired,
-      to: PropTypes.string.isRequired,
+      from: Date,
+      to: Date,
       title: PropTypes.string.isRequired,
     }),
   ),
