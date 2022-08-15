@@ -50,7 +50,8 @@ export default class Weekly extends React.Component {
   setBarTop(top) {
 
     if (this.container && !this.state.barTop) {
-      console.log("calendar", this.container.firstChild.firstChild.firstChild.offsetHeight, this.container.offsetHeight);
+      //console.log("calendar", this.container.firstChild.firstChild.firstChild.offsetHeight,
+      // this.container.offsetHeight);
       //calculate minutes since today at 00:00
       const newDate = new Date();
       //newDate.setHours(12, 0, 0, 0);

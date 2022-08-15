@@ -13,15 +13,15 @@ export default class WeekDaily extends React.Component {
   }
 
   setBarTop(el) {
-    console.log("el", el);
-    if (!el || this.state.barTop) {
+    ///console.log("el", el);
+    if (!el || this.state.barTop || !this.props.date) {
       return;
     }
     const display = this.props.date.getDate() === new Date().getDate() && this.props.date.getMonth() === new Date().getMonth() && this.props.date.getFullYear() === new Date().getFullYear() ? 'inline-flex' : 'none';
     const newDate = new Date();
     //newDate.setHours(12, 0, 0, 0);
     let minutes = newDate.getHours() * 60 + newDate.getMinutes();
-    console.log("ellee", el.offsetHeight)
+    //console.log("ellee", el.offsetHeight)
     let barTop = (minutes / (24 * 60)) * el.offsetHeight;
     this.setState({
       barTop: barTop - 0,
