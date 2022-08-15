@@ -252,10 +252,10 @@ export default class Weekly extends React.Component {
           }}>
             {this.returnCalendar()}
 
-            <div className='time-bar-container2' style={{ top: this.state.barTop }}>
+            {/*<div className='time-bar-container2' style={{ top: this.state.barTop }}>
               <div className='time-bar-circle2'></div>
               <div className='time-bar2'></div>
-            </div>
+            </div>*/}
 
           </div>
 

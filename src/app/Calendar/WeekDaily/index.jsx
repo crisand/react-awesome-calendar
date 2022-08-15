@@ -8,11 +8,30 @@ import Weekly from "../Weekly";
 export default class WeekDaily extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {};
     this.onClickTimeLine = this.onClickTimeLine.bind(this);
+  }
+
+  setBarTop(el) {
+    console.log("el", el);
+    if (!el || this.state.barTop) {
+      return;
+    }
+    const display = this.props.date.getDate() === new Date().getDate() && this.props.date.getMonth() === new Date().getMonth() && this.props.date.getFullYear() === new Date().getFullYear() ? 'inline-flex' : 'none';
+    const newDate = new Date();
+    //newDate.setHours(12, 0, 0, 0);
+    let minutes = newDate.getHours() * 60 + newDate.getMinutes();
+    console.log("ellee", el.offsetHeight)
+    let barTop = (minutes / (24 * 60)) * el.offsetHeight;
+    this.setState({
+      barTop: barTop - 0,
+      display
+    });
   }
 
   componentDidMount() {
     this.getHourPosition();
+
   }
 
   componentDidUpdate() {
@@ -266,11 +285,20 @@ export default class WeekDaily extends React.Component {
     return (
       <div id='dailyTimeLine' className={styles.dailyTimeLineWrapper2} onClick={this.onClickTimeLine}>
         {/*  <div className={styles.dailyHourTextWrapper}>{this.returnHours()}</div>*/}
-        <div className={styles.dailyTimeLine2}>
+        <div ref={ref => {
+          this.setBarTop(ref)
+        }} className={styles.dailyTimeLine2}>
           <div>
             {this.returnEvents()}
           </div>
           {this.returnHoursLine()}
+        </div>
+        <div className='time-bar-container2' style={{
+          top: this.state?.barTop,
+          display: this.state?.display
+        }}>
+          <div className='time-bar-circle2'></div>
+          <div className='time-bar2'></div>
         </div>
       </div>
     );
@@ -313,6 +341,7 @@ export default class WeekDaily extends React.Component {
         </div>*/}
         {this.returnAllDayEvents()}
         {this.returnTimeLine()}
+
       </div>
     );
   }
