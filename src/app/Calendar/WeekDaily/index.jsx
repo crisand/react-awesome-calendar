@@ -243,6 +243,7 @@ export default class WeekDaily extends React.Component {
               color={'#fff'}
               title={event.title}
               time={event.time}
+              timeTo={event.timeTo}
               onClick={() => this.onClickEvent(event.id)}
             />
           </div>

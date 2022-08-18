@@ -3,24 +3,41 @@
   min-height: 1.6em;
   left: 50px;
   height: 100%;
-  color: white;
+  color: #151515;
   border-radius: 0px;
   box-sizing: border-box;
   padding: 5px 10px;
   line-height: 100%;
-  border: 1px solid #007AC2;
-  background-color: transparent !important;
+  border: 0px solid #007AC2;
+  background-color: white !important;
 }
 
-.dailyEventTitle {
 
+.eventTimeDailyTime {
   font-family: 'Avenir';
   font-style: normal;
+  margin-top: 2px;
   font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 14px;
+  color: #6A6A6A;
+  /* identical to box height, or 133% */
 
-  /* Text/Text-1 */
+  text-align: left;
 
-  color: #151515;
+
 }
+
+.eventTimeDailyTitleHeader {
+  font-family: 'Avenir';
+  font-style: normal;
+
+  font-weight: 500;
+  font-size: 15px !important;
+  color: #151515;
+  /* identical to box height, or 133% */
+
+  text-align: left;
+
+
+}
+

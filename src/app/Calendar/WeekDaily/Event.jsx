@@ -21,13 +21,26 @@ export default class Event extends React.Component {
         className={styles.dailyEventWrapper}
       >
         {/*<span className={styles.dailyEventTitle}>{this.props.title}</span>*/}
-        <span style={{
+        <div style={{
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          opacity: 0.15,
+          backgroundColor: '#007AC2'
+        }}></div>
+        <div style={{
           color: "#151515",
           display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          gap: 5
-        }} className={styles.dailyEventTitle}><div className='dot'></div><span style={{ flexGrow: 1 }}>{this.props.title}</span> <span className='eventTime'>{this.props.time}</span></span>
+          marginTop: 10,
+          flexDirection: "column",
+
+          gap: 10
+        }}>
+          <div className='eventTimeDailyTitleHeader'>{this.props.title}</div>
+          <div className='eventTimeDailyTime'>{this.props.time + "-" + this.props.timeTo}</div>
+        </div>
       </div>
     );
   }
