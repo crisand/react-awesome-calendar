@@ -71,7 +71,6 @@ export default class Day extends React.PureComponent {
       const singleEventHeight = getElementHeight(singleEvent);
 
       const remainingTextHeight = 16;
-
       const eventGroupHeight =
         dayCellHeight - dayHeaderHeight - remainingTextHeight;
 
