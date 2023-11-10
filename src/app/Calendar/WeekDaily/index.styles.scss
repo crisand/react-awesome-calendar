@@ -10,6 +10,7 @@
 }
 .hoverable{
   background-color: #f5f5f5;
+  pointer-events: none;
 }
 .dailyTimeLine2 {
   position: absolute;
@@ -27,6 +28,9 @@
 
 .dailyHourWrapper2 {
   height: 61px;
+  &:hover {
+    background-color:#007AC2;
+  }
 }
 
 .dailyHour2 {

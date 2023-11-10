@@ -43,9 +43,17 @@ export default class Day extends React.PureComponent {
   }
 
   returnDayCellClassStyle(){
-    let className = [styles.dayCell];
-    console.log("kaka")
-    return className
+    const className=this.iCant() ? 'dayCell inactiveDayCell': 'dayCell';
+   /*  let className = [styles.dayCell];
+    console.log("kaka",)
+    
+      className.push('inactiveDayCell');
+   
+    //if date day is less than today day add the disable style
+    if (this.iCant()) {
+      className.push('disabledDayCell');
+    } */
+    return [className];
   }
   returnDayClassStyle() {
     let className = [styles.dayDate];

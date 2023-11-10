@@ -54,7 +54,10 @@
   font-size: 0.9em;
   text-align: center;
 }
-
+.inactiveDayCell{
+  background-color: #f5f5f5;
+  pointer-events: none;
+}
 .currentDay {
   border-radius: 50%;
   color: white;

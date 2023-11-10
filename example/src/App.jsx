@@ -72,7 +72,7 @@ class App extends React.Component {
           onChange={(dates) => console.log("kuku", dates)}
           currentMonth={10}
           currentWeek={2}
-          mode="weeklyMode"
+          mode="monthlyMode"
           currentYear={2023}
           onClickTimeLine={(date) => console.log(date)}
           events={events}
