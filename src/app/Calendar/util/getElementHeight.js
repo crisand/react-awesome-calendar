@@ -1,4 +1,5 @@
 export const getElementHeight = element => {
+  if(!element) return 0;
   let height = element.offsetHeight;
   height += parseInt(
     window.getComputedStyle(element).getPropertyValue('margin-top')
