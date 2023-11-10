@@ -42,6 +42,11 @@ export default class Day extends React.PureComponent {
     return date === currentDate;
   }
 
+  returnDayCellClassStyle(){
+    let className = [styles.dayCell];
+    console.log("kaka")
+    return className
+  }
   returnDayClassStyle() {
     let className = [styles.dayDate];
     if (!this.props.current) {
@@ -153,12 +158,12 @@ export default class Day extends React.PureComponent {
     }
     return classnames(className);
   }
-
+ 
   render() {
     return (
       <div
         id="dayCell"
-        className={styles.dayCell}
+        className={this.returnDayCellClassStyle()}
         onClick={() => {
           if (!this.iCant()) {
             this.props.onClickDay()

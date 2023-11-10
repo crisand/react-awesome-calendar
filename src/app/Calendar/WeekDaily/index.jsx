@@ -6,6 +6,10 @@ import {endPosition, middlePosition, startPosition} from '../constants';
 import Weekly from "../Weekly";
 
 export default class WeekDaily extends React.Component {
+  
+  hours = [
+    
+  ];
   constructor(props) {
     super(props);
     this.state = {};
@@ -30,6 +34,40 @@ export default class WeekDaily extends React.Component {
   }
 
   componentDidMount() {
+    const hours = [
+      '00:00',
+      '01:00',
+      '02:00',
+      '03:00',
+      '04:00',
+      '05:00',
+      '06:00',
+      '07:00',
+      '08:00',
+      '09:00',
+      '10:00',
+      '11:00',
+      '12:00',
+      '13:00',
+      '14:00',
+      '15:00',
+      '16:00',
+      '17:00',
+      '18:00',
+      '19:00',
+      '20:00',
+      '21:00',
+      '22:00',
+      '23:00',
+    
+    ];
+    this.hours = hours.map((hour, i) => {
+      let obj={};
+      obj.hour=hour;
+      obj.timestamp= new Date(this.props.date.getFullYear(), this.props.date.getMonth(), this.props.date.getDate(), i, 0, 0).getTime();
+      obj.class=obj.timestamp < new Date().getTime()-30*60*1000 ? 'dailyHourWrapper2 hoverable' : 'dailyHourWrapper2';
+      return obj;
+    });
     this.getHourPosition();
 
   }
@@ -74,6 +112,28 @@ export default class WeekDaily extends React.Component {
       ));
     }
     return [];
+  }
+  getHoursClass(timestamp){
+    console.log("class",styles.dailyHourWrapper2)
+    return styles.dailyHourWrapper2+this.getIsHoverable(timestamp);
+  };
+  getIsHoverable(timestamp) {
+    //return the class hoverable only to hours that are past current time
+  
+    if (timestamp > new Date().getTime()) {
+      return ' hoverable';
+    }
+    /* if(this.props.date.getDate() === new Date().getDate() && this.props.date.getMonth() === new Date().getMonth() && this.props.date.getFullYear() === new Date().getFullYear()){
+      const newDate= new Date();
+      const hourParts = hour.split(':');
+      const hourNumber = parseInt(hourParts[0]);
+      const minuteNumber = parseInt(hourParts[1]);
+      newDate.setHours(hourNumber);
+      newDate.setMinutes(minuteNumber);
+      if (newDate.getTime() > new Date().getTime()) {
+        return ' hoverable';
+      }
+    } */
   }
 
   getHourPosition() {
@@ -151,76 +211,13 @@ export default class WeekDaily extends React.Component {
   //   }
   // }
 
-  returnHours() {
-    const hours = [
-      '00:00',
-      '01:00',
-      '02:00',
-      '03:00',
-      '04:00',
-      '05:00',
-      '06:00',
-      '07:00',
-      '08:00',
-      '09:00',
-      '10:00',
-      '11:00',
-      '12:00',
-      '13:00',
-      '14:00',
-      '15:00',
-      '16:00',
-      '17:00',
-      '18:00',
-      '19:00',
-      '20:00',
-      '21:00',
-      '22:00',
-      '23:00',
-      '24:00',
-    ];
-    return hours.map((hour, i) => {
-      return (
-        <div key={i} className={styles.dailyHourWrapper2}>
-          <div className={styles.dailyHourText2}>
-            <span>{hour}</span>
-          </div>
-        </div>
-      );
-    });
-  }
+  
 
   returnHoursLine() {
-    const hours = [
-      '00:00',
-      '01:00',
-      '02:00',
-      '03:00',
-      '04:00',
-      '05:00',
-      '06:00',
-      '07:00',
-      '08:00',
-      '09:00',
-      '10:00',
-      '11:00',
-      '12:00',
-      '13:00',
-      '14:00',
-      '15:00',
-      '16:00',
-      '17:00',
-      '18:00',
-      '19:00',
-      '20:00',
-      '21:00',
-      '22:00',
-      '23:00',
-
-    ];
-    return hours.map((hour, i) => {
+   
+    return this.hours.map((hour, i) => {
       return (
-        <div key={i} className={styles.dailyHourWrapper2}>
+        <div key={i} className={hour.class}>
           <div className={styles.dailyHour2}>
             <div className={styles.dailyHourLine2}/>
           </div>
