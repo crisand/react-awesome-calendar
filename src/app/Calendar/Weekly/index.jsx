@@ -242,7 +242,7 @@ export default class Weekly extends React.Component {
           {this.returnCalendarHeader()}
         </div>
         <div ref={(ref)=>{
-          if(ref){
+          if(ref&&! ref.scrollTop){
             ref.scrollTop =61*8;
           }
         }} style={{
