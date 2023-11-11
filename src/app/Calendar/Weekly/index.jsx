@@ -241,7 +241,11 @@ export default class Weekly extends React.Component {
         <div className={styles.calendarDayOfWeekWeekly}>
           {this.returnCalendarHeader()}
         </div>
-        <div style={{
+        <div ref={(ref)=>{
+          if(ref){
+            ref.scrollTop =61*8;
+          }
+        }} style={{
           overflowY: 'scroll',
           height: 'calc(100% - 30px)',
           display: 'inline-flex',
