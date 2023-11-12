@@ -208,7 +208,7 @@ export default class Weekly extends React.Component {
       '11:00 pm',
 
     ];
-    return <div style={{ width: 55 }}>
+    return <div style={{ width: 70 }}>
       {
         hours.map((hour, i) => {
           return (
