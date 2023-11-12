@@ -33,7 +33,7 @@ export default class Event extends React.Component {
         <div style={{
           color: "#151515",
           display: "flex",
-          marginTop: 10,
+          marginTop: 5,
           flexDirection: "column",
 
           gap: 10
